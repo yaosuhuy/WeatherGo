@@ -23,7 +23,7 @@
 
 
     <TextView
-        android:id="@+id/chi_ti_t_th"
+        android:id="@+id/detailTv"
         android:layout_width="483px"
         android:layout_height="109px"
         android:layout_alignParentLeft="true"
@@ -31,7 +31,8 @@
         android:layout_marginStart="34dp"
         android:layout_marginTop="851px"
         android:gravity="top"
-        android:text="Buồi dái lồn vú "
+        android:text="Chi tiết thời tiết"
+        android:textColor="#818181"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -89,8 +90,8 @@
             android:id="@+id/humidityFrame"
             android:layout_width="430px"
             android:layout_height="300px"
-            android:layout_marginEnd="10dp"
             android:background="@drawable/rectangle"
+            android:layout_marginStart="2dp"
             android:elevation="4dp"/>
 
 
@@ -168,14 +169,14 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
+
         <View
             android:id="@+id/cloudFrame"
             android:layout_width="430px"
             android:layout_height="300px"
-            android:layout_marginEnd="10dp"
+            android:layout_marginStart="2dp"
             android:background="@drawable/rectangle"
-            android:elevation="4dp"/>
-
+            android:elevation="4dp" />
 
         <ImageView
             android:id="@+id/cloud_icon"
