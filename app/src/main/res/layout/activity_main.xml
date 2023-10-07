@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <View
+        android:id="@+id/mainFrame"
+        android:layout_width="890px"
+        android:layout_height="620px"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="160px"
+        android:background="@drawable/rectangle"
+        android:elevation="4dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0" />
+
+
+    <TextView
+        android:id="@+id/chi_ti_t_th"
+        android:layout_width="483px"
+        android:layout_height="109px"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="95px"
+        android:layout_marginTop="851px"
+        android:gravity="top"
+        android:text="Chi tiết thời tiết"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!--    real feel frame-->
+    <FrameLayout
+        android:layout_width="460px"
+        android:layout_height="320px"
+        android:layout_marginStart="21dp"
+        android:layout_marginTop="364dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <View
+            android:id="@+id/realFeelFrame"
+            android:layout_width="430px"
+            android:layout_height="300px"
+            android:layout_marginStart="15dp"
+            android:background="@drawable/rectangle"
+            android:elevation="4dp" />
+
+        <ImageView
+            android:id="@+id/temp_icon"
+            android:layout_width="100px"
+            android:layout_height="100px"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="20px"
+            android:layout_marginStart="35px"
+            android:elevation="4dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/temperature_icon" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="65px"
+            android:layout_marginTop="130px"
+            android:elevation="4dp"
+            android:text="Nhiệt độ cảm nhận"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </FrameLayout>
+
+    <!--  humidity frame-->
+    <FrameLayout
+        android:layout_width="460px"
+        android:layout_height="320px"
+        android:layout_marginStart="208dp"
+        android:layout_marginTop="364dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <View
+            android:id="@+id/humidityFrame"
+            android:layout_width="430px"
+            android:layout_height="300px"
+            android:layout_marginEnd="21dp"
+            android:background="@drawable/rectangle"
+            android:elevation="4dp"/>
+
+
+        <ImageView
+            android:id="@+id/humid_icon"
+            android:layout_width="70px"
+            android:layout_height="70px"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="30px"
+            android:layout_marginTop="40px"
+            android:elevation="4dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/humidityIcon" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="130px"
+            android:elevation="4dp"
+            android:text="Độ ẩm"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </FrameLayout>
+
+<!--    wind speed frame -->
+    <FrameLayout
+        android:layout_width="460px"
+        android:layout_height="320px"
+        android:layout_marginStart="21dp"
+        android:layout_marginTop="496dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <View
+            android:id="@+id/windSpeedFrame"
+            android:layout_width="430px"
+            android:layout_height="300px"
+            android:layout_marginStart="15dp"
+            android:background="@drawable/rectangle"
+            android:elevation="4dp" />
+
+        <ImageView
+            android:id="@+id/windSpeed_icon"
+            android:layout_width="70px"
+            android:layout_height="70px"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="35px"
+            android:layout_marginStart="23dp"
+            android:elevation="4dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/windIcon" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="65px"
+            android:layout_marginTop="130px"
+            android:elevation="4dp"
+            android:text="Độ ẩm"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </FrameLayout>
+
+<!--    cloud frame-->
+    <FrameLayout
+        android:layout_width="460px"
+        android:layout_height="320px"
+        android:layout_marginStart="208dp"
+        android:layout_marginTop="496dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <View
+            android:id="@+id/cloudFrame"
+            android:layout_width="430px"
+            android:layout_height="300px"
+            android:layout_marginEnd="21dp"
+            android:background="@drawable/rectangle"
+            android:elevation="4dp"/>
+
+
+        <ImageView
+            android:id="@+id/cloud_icon"
+            android:layout_width="75px"
+            android:layout_height="75px"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="37px"
+            android:layout_marginTop="35px"
+            android:elevation="4dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/cloudIcon" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="130px"
+            android:elevation="4dp"
+            android:text="Nhiệt độ cảm nhận"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </FrameLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
