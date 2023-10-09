@@ -6,21 +6,38 @@
     android:layout_height="match_parent"
     tools:context=".HomeFragment">
 
-    <View
-        android:id="@+id/mainFrame"
-        android:layout_width="890px"
-        android:layout_height="620px"
+    <FrameLayout
+        android:layout_width="950px"
+        android:layout_height="650px"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:layout_marginTop="160px"
-        android:background="@drawable/rectangle"
-        android:elevation="4dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0" />
+        app:layout_constraintVertical_bias="0">
 
+        <View
+            android:id="@+id/mainFrame"
+            android:layout_width="890px"
+            android:layout_height="620px"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/rectangle"
+            android:elevation="4dp" />
+
+        <TextView
+            android:layout_width="500px"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginStart="30dp"
+            android:layout_marginBottom="5dp"
+            android:elevation="4dp"
+            android:text="25"
+            android:textSize="256px" />
+    </FrameLayout>
 
     <TextView
         android:id="@+id/detailTv"
@@ -59,8 +76,8 @@
             android:layout_height="100px"
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
-            android:layout_marginTop="20px"
             android:layout_marginStart="35px"
+            android:layout_marginTop="20px"
             android:elevation="4dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -81,8 +98,8 @@
     <FrameLayout
         android:layout_width="460px"
         android:layout_height="320px"
-        android:layout_marginEnd="24dp"
         android:layout_marginTop="364dp"
+        android:layout_marginEnd="24dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -90,9 +107,9 @@
             android:id="@+id/humidityFrame"
             android:layout_width="430px"
             android:layout_height="300px"
-            android:background="@drawable/rectangle"
             android:layout_marginStart="2dp"
-            android:elevation="4dp"/>
+            android:background="@drawable/rectangle"
+            android:elevation="4dp" />
 
 
         <ImageView
@@ -142,8 +159,8 @@
             android:layout_height="70px"
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
-            android:layout_marginTop="35px"
             android:layout_marginStart="23dp"
+            android:layout_marginTop="35px"
             android:elevation="4dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -164,8 +181,8 @@
     <FrameLayout
         android:layout_width="460px"
         android:layout_height="320px"
-        android:layout_marginEnd="24dp"
         android:layout_marginTop="496dp"
+        android:layout_marginEnd="24dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
