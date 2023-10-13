@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".HomeFragment">
+    tools:context=".Fragments.HomeFragment">
 
     <FrameLayout
         android:layout_width="950px"
@@ -29,13 +29,23 @@
             android:elevation="4dp" />
 
         <TextView
+            android:layout_width="470px"
+            android:layout_height="140px"
+            android:layout_gravity="top"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="20dp"
+            android:elevation="4dp"
+            android:text="Định Công"
+            android:textSize="55px" />
+
+        <TextView
+            android:id="@+id/mainTempTxt"
             android:layout_width="500px"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
             android:layout_marginStart="30dp"
             android:layout_marginBottom="5dp"
             android:elevation="4dp"
-            android:text="25"
             android:textSize="256px" />
     </FrameLayout>
 
@@ -92,6 +102,17 @@
             android:text="Nhiệt độ cảm nhận"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/realFeelTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="65px"
+            android:layout_marginTop="200px"
+            android:elevation="4dp"
+            android:text="25"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
     </FrameLayout>
 
     <!--  humidity frame-->
@@ -123,7 +144,7 @@
             android:elevation="4dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/humidityicon" />
+            app:srcCompat="@drawable/humidity_icon" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -132,6 +153,17 @@
             android:layout_marginTop="130px"
             android:elevation="4dp"
             android:text="Độ ẩm"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/humidityTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="40px"
+            android:layout_marginTop="200px"
+            android:elevation="4dp"
+            android:text="25"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
     </FrameLayout>
@@ -164,7 +196,7 @@
             android:elevation="4dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/windicon" />
+            app:srcCompat="@drawable/wind_icon" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -173,6 +205,17 @@
             android:layout_marginTop="130px"
             android:elevation="4dp"
             android:text="Tốc độ gió"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/windSpeedTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="65px"
+            android:layout_marginTop="200px"
+            android:elevation="4dp"
+            android:text="25"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
     </FrameLayout>
@@ -206,7 +249,7 @@
             android:elevation="4dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/cloudicon" />
+            app:srcCompat="@drawable/cloud_icon" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -215,6 +258,17 @@
             android:layout_marginTop="130px"
             android:elevation="4dp"
             android:text="Mây"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/cloudTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="40px"
+            android:layout_marginTop="200px"
+            android:elevation="4dp"
+            android:text="25"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
     </FrameLayout>
