@@ -47,6 +47,16 @@
             android:layout_marginBottom="5dp"
             android:elevation="4dp"
             android:textSize="256px" />
+
+        <TextView
+            android:id="@+id/conditionTxt"
+            android:layout_width="350px"
+            android:layout_height="150px"
+            android:layout_gravity="bottom"
+            android:layout_marginStart="200dp"
+            android:layout_marginBottom="5dp"
+            android:elevation="4dp"
+            android:textSize="64px" />
     </FrameLayout>
 
     <TextView
@@ -110,7 +120,6 @@
             android:layout_marginStart="65px"
             android:layout_marginTop="200px"
             android:elevation="4dp"
-            android:text="25"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
     </FrameLayout>
@@ -163,7 +172,6 @@
             android:layout_marginStart="40px"
             android:layout_marginTop="200px"
             android:elevation="4dp"
-            android:text="25"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
     </FrameLayout>
@@ -215,7 +223,6 @@
             android:layout_marginStart="65px"
             android:layout_marginTop="200px"
             android:elevation="4dp"
-            android:text="25"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
     </FrameLayout>
@@ -268,7 +275,6 @@
             android:layout_marginStart="40px"
             android:layout_marginTop="200px"
             android:elevation="4dp"
-            android:text="25"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
     </FrameLayout>
