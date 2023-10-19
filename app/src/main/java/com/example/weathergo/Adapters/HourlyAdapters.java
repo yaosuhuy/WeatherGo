@@ -20,7 +20,8 @@ public class HourlyAdapters extends RecyclerView.Adapter<HourlyAdapters.viewHold
     ArrayList<Hourly> items;
     Context context;
 
-    public HourlyAdapters(ArrayList<Hourly> items) {
+    public HourlyAdapters(ArrayList<Hourly> items, Context context) {
+        this.context = context;
         this.items = items;
     }
 
@@ -28,9 +29,11 @@ public class HourlyAdapters extends RecyclerView.Adapter<HourlyAdapters.viewHold
     @Override
     public HourlyAdapters.viewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         // inflate la gi??
-        View inflate = LayoutInflater.from(parent.getContext()).inflate(R.layout.viewholder_hourly, parent, false);
-        context = parent.getContext();
-        return new viewHolder(inflate);
+//        View inflate = LayoutInflater.from(parent.getContext()).inflate(R.layout.viewholder_hourly, parent, false);
+//        context = parent.getContext();
+//        return new viewHolder(inflate);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.viewholder_hourly, parent, false);
+        return new viewHolder(view);
     }
 
     @Override
@@ -42,6 +45,8 @@ public class HourlyAdapters extends RecyclerView.Adapter<HourlyAdapters.viewHold
 
         Glide.with(context).load(drawableResourceId).into(holder.pic);
 
+//        String item = String.valueOf(items.get(position));
+//        holder.tempTxt.setText(item);
     }
 
     @Override
@@ -55,10 +60,9 @@ public class HourlyAdapters extends RecyclerView.Adapter<HourlyAdapters.viewHold
 
         public viewHolder(@NonNull View itemView) {
             super(itemView);
-
             hourTxt = itemView.findViewById(R.id.hourTxt);
             tempTxt = itemView.findViewById(R.id.tempTxt);
-            pic =itemView.findViewById(R.id.pic);
+            pic = itemView.findViewById(R.id.pic);
         }
     }
 }

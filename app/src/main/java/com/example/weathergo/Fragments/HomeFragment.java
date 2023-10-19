@@ -73,11 +73,13 @@ public class HomeFragment extends Fragment {
 //                String cloudText = String.valueOf((int) cloud);
 //                cloudTxt.setText(cloudText+"%");
 
+                // nhiet do o khung chinh
                 JSONObject currentObject = response.getJSONObject("current");
                 double temperature = currentObject.getDouble("temp_c");
                 String tempCelText = String.valueOf((int) temperature);
                 mainTempTxt.setText(tempCelText+"°");
 
+                // doan nay de lay tinh trang thoi tiet
                 JSONObject conditionObject = currentObject.getJSONObject("condition");
                 String textCondition = conditionObject.getString("text");
 
@@ -86,11 +88,30 @@ public class HomeFragment extends Fragment {
 
                 // vi du cai nay kieu nhu la "neu gia tri tu api la "clear" thi minh se hien thi len man hinh la "troi quang"
                 weatherMapping.put("Clear", "Trời quang");
-                weatherMapping.put("rain", "Mưa");
-                weatherMapping.put("cloudy", "Nhiều mây");
+                weatherMapping.put("Rainy", "Mưa");
+                weatherMapping.put("Cloudy", "Nhiều mây");
+                weatherMapping.put("Partly cloudy", "Mây rải rác");
+                weatherMapping.put("Sunny", "Nắng");
 
                 String displayValue = weatherMapping.get(textCondition);
                 conditionTxt.setText(displayValue);
+
+                // nhiet do cam nhan
+                int realFeelTemp = currentObject.getInt("feelslike_c");
+                realFeelTxt.setText(realFeelTemp+""+"°C");
+
+                // do am
+                int humidity = currentObject.getInt("humidity");
+                humidityTxt.setText(humidity+"");
+
+                // toc do gio
+                double windSpeed = currentObject.getDouble("wind_kph");
+                windSpeedTxt.setText(windSpeed+""+"km/h");
+
+                // luong may
+                int cloud = currentObject.getInt("cloud");
+                cloudTxt.setText(cloud+""+"%");
+
 
             } catch (JSONException e) {
                 Toast.makeText(getActivity(), e.getMessage(), Toast.LENGTH_SHORT).show();
