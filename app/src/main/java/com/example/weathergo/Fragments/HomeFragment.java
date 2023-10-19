@@ -1,9 +1,12 @@
 package com.example.weathergo.Fragments;
 
+import android.media.Image;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -13,6 +16,7 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.bumptech.glide.Glide;
 import com.example.weathergo.R;
 
 import org.json.JSONException;
@@ -22,7 +26,7 @@ import java.util.HashMap;
 
 public class HomeFragment extends Fragment {
     TextView realFeelTxt, cloudTxt, windSpeedTxt, humidityTxt, mainTempTxt, conditionTxt;
-
+    ImageView conditionGif;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -34,6 +38,8 @@ public class HomeFragment extends Fragment {
         windSpeedTxt = (TextView) view.findViewById(R.id.windSpeedTxt);
         cloudTxt = (TextView) view.findViewById(R.id.cloudTxt);
         conditionTxt = (TextView) view.findViewById(R.id.conditionTxt);
+
+        conditionGif = (ImageView) view.findViewById(R.id.conditionView);
         // Inflate the layout for this fragment
         getWeatherData();
         // return inflater.inflate(R.layout.fragment_home, container, false);
@@ -95,6 +101,13 @@ public class HomeFragment extends Fragment {
 
                 String displayValue = weatherMapping.get(textCondition);
                 conditionTxt.setText(displayValue);
+                switch (displayValue){
+                    case "Mây rải rác":
+                        Glide.with(this).load(R.drawable.cloudy_main_frame).into(conditionGif);
+                        Log.d("Result","Load gif thành công");
+                        break;
+                }
+
 
                 // nhiet do cam nhan
                 int realFeelTemp = currentObject.getInt("feelslike_c");
