@@ -3,7 +3,8 @@
     <!-- drawable/rectangle_2.xml -->
     <item>
         <shape>
-            <solid android:color="#F6EEED"></solid>
+<!--            <solid android:color="#F6EEED"></solid>-->
+            <solid android:color="#00000000" /> <!-- #00000000 là màu đen trong suốt -->
             <corners android:radius="75px"></corners>
         </shape>
     </item>

@@ -106,6 +106,14 @@ public class HomeFragment extends Fragment {
                         Glide.with(this).load(R.drawable.cloudy_main_frame).into(conditionGif);
                         Log.d("Result","Load gif thành công");
                         break;
+                    case "Trời quang":
+                        Glide.with(this).load(R.drawable.clear_mainframe).into(conditionGif);
+                        Log.d("Result","Load gif thành công");
+                        break;
+                    case "Nắng":
+                        Glide.with(this).load(R.drawable.sunny_mainframe).into(conditionGif);
+                        Log.d("Result","Load gif thành công");
+                        break;
                 }
 
 
