@@ -11,11 +11,12 @@
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tabLayout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:tabIndicatorFullWidth="true"
-        app:tabIndicatorColor="#FFB6AC"
+        android:background="#33F1CCCD"
+        app:tabIndicatorColor="#FF9E91"
         app:tabSelectedTextColor="#000000"
         app:tabTextColor="#cccccc"
         >
@@ -40,5 +41,6 @@
         android:layout_height="match_parent"
         android:id="@+id/viewPager"
         app:layout_constraintBottom_toTopOf="@id/tabLayout"
+        android:layout_marginBottom="50dp"
         />
 </androidx.constraintlayout.widget.ConstraintLayout>

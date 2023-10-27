@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#33F1CCCD"
     tools:context=".Fragments.HomeFragment">
 
     <FrameLayout
@@ -18,16 +19,16 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0">
 
-        <ImageView
+        <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/conditionView"
             android:layout_width="match_parent"
             android:layout_height="620px"
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
             android:layout_gravity="center_horizontal"
-
             android:elevation="4dp"
-            android:scaleType="fitXY" />
+            android:scaleType="fitXY"
+            app:shapeAppearanceOverlay="@style/roundImageView" />
 
         <TextView
             android:layout_width="470px"

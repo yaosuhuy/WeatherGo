@@ -98,6 +98,7 @@ public class HomeFragment extends Fragment {
                 weatherMapping.put("Cloudy", "Nhiều mây");
                 weatherMapping.put("Partly cloudy", "Mây rải rác");
                 weatherMapping.put("Sunny", "Nắng");
+                weatherMapping.put("Mist", "Sương mù");
 
                 String displayValue = weatherMapping.get(textCondition);
                 conditionTxt.setText(displayValue);
@@ -111,8 +112,13 @@ public class HomeFragment extends Fragment {
                         Log.d("Result","Load gif thành công");
                         break;
                     case "Nắng":
-                        Glide.with(this).load(R.drawable.sunny_mainframe).into(conditionGif);
-                        Log.d("Result","Load gif thành công");
+                        Glide.with(this).load(R.drawable.sunnygif_mainframe).into(conditionGif);
+                        break;
+                    case "Mưa":
+                        Glide.with(this).load(R.drawable.rain_condition_mainframe).into(conditionGif);
+                        break;
+                    case "Sương mù":
+                        Glide.with(this).load(R.drawable.mist_mainframe).into(conditionGif);
                         break;
                 }
 
@@ -123,7 +129,7 @@ public class HomeFragment extends Fragment {
 
                 // do am
                 int humidity = currentObject.getInt("humidity");
-                humidityTxt.setText(humidity+"");
+                humidityTxt.setText(humidity+""+"%");
 
                 // toc do gio
                 double windSpeed = currentObject.getDouble("wind_kph");

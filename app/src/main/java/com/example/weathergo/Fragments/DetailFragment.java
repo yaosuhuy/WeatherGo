@@ -13,11 +13,13 @@ import com.example.weathergo.Adapters.HourlyAdapters;
 import com.example.weathergo.Domains.Hourly;
 import com.example.weathergo.R;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class DetailFragment extends Fragment {
-    RecyclerView hourlyView;
-    private RecyclerView.Adapter adapterHourly;
+    private RecyclerView hourlyView;
+    private ArrayList<Hourly> items;
+    private HourlyAdapters adapterHourly;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -26,25 +28,26 @@ public class DetailFragment extends Fragment {
         // return inflater.inflate(R.layout.fragment_detail, container, false);
         View view = inflater.inflate(R.layout.fragment_detail, container, false);
         hourlyView = view.findViewById(R.id.hourlyView);
+
+        items = new ArrayList<>();
         initRecyclerView();
         return view;
 
     }
 
     private void initRecyclerView() {
-        ArrayList<Hourly> items = new ArrayList<>();
+        items.add(new Hourly("Bây giờ", 2323, "rain_status"));
+        items.add(new Hourly("Bây giờ", 2323, "sunny_status"));
+        items.add(new Hourly("Bây giờ", 2323, "rain_status"));
+        items.add(new Hourly("Bây giờ", 2323, "rain_status"));
+        items.add(new Hourly("Bây giờ", 2323, "rain_status"));
+        items.add(new Hourly("Bây giờ", 2323, "rain_status"));
+        items.add(new Hourly("Bây giờ", 2323, "rain_status"));
+        items.add(new Hourly("Bây giờ", 2323, "rain_status"));
 
-        items.add(new Hourly("Bây giờ", 23, "sunny_status"));
-        items.add(new Hourly("Bây giờ", 24, "sunny_status"));
-        items.add(new Hourly("Bây giờ", 25, "sunny_status"));
-        items.add(new Hourly("Bây giờ", 26, "sunny_status"));
-        items.add(new Hourly("Bây giờ", 27, "sunny_status"));
 
-
-        hourlyView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
-
-        adapterHourly = new HourlyAdapters(items, getContext());
+        adapterHourly = new HourlyAdapters(items, requireContext());
         hourlyView.setAdapter(adapterHourly);
+        hourlyView.setLayoutManager(new LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false));
     }
-
 }
