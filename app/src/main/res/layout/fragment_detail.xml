@@ -15,7 +15,6 @@
         android:layout_marginStart="78px"
         android:layout_marginTop="157px"
         android:background="#33F1CCCD"
-
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -60,7 +59,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/realFeelTxt"
+            android:id="@+id/windDirectTxt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="65px"
