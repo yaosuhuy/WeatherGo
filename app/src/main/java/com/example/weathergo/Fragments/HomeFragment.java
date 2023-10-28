@@ -99,10 +99,18 @@ public class HomeFragment extends Fragment {
                 weatherMapping.put("Partly cloudy", "Mây rải rác");
                 weatherMapping.put("Sunny", "Nắng");
                 weatherMapping.put("Mist", "Sương mù");
+                weatherMapping.put("Moderate rain", "Mưa vừa");
+                weatherMapping.put("Light rain", "Mưa nhỏ");
 
                 String displayValue = weatherMapping.get(textCondition);
                 conditionTxt.setText(displayValue);
                 switch (displayValue){
+                    case "Mưa nhỏ":
+                        Glide.with(this).load(R.drawable.moderate_rain).into(conditionGif);
+                        break;
+                    case "Mưa vừa":
+                        Glide.with(this).load(R.drawable.moderate_rain).into(conditionGif);
+                        break;
                     case "Mây rải rác":
                         Glide.with(this).load(R.drawable.cloudy_main_frame).into(conditionGif);
                         Log.d("Result","Load gif thành công");

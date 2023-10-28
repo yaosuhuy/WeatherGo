@@ -21,6 +21,7 @@ import com.example.weathergo.Adapters.HourlyAdapters;
 import com.example.weathergo.Domains.Hourly;
 import com.example.weathergo.R;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -48,6 +49,7 @@ public class DetailFragment extends Fragment {
         pressureTxt = (TextView) view.findViewById(R.id.pressureTxt);
 
         hourlyView = view.findViewById(R.id.hourlyView);
+        hourlyView.setBackgroundColor(getResources().getColor(R.color.primary));
 
         items = new ArrayList<>();
         initRecyclerView();
@@ -57,6 +59,23 @@ public class DetailFragment extends Fragment {
     }
 
     private void initRecyclerView() {
+        String apikey = "3e196e42d16c6b34d661461bffccea60";
+        String city = "hanoi";
+        // String url = "https://api.openweathermap.org/data/2.5/weather?q="+city+"&appid="+apikey+"";
+        String url = "https://api.weatherapi.com/v1/current.json?key=3e863d90628d41b2a6e72023232709&q=Hanoi&aqi=no";
+        RequestQueue queue = Volley.newRequestQueue(getActivity().getApplicationContext());
+        JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null, response -> {
+            try {
+                JSONObject forecastObject = response.getJSONObject("forecast");
+                JSONArray forecastDayArray = forecastObject.getJSONArray("forecastday");
+                JSONObject hourObject = forecastDayArray.getJSONObject(4);
+
+            } catch (JSONException e) {
+                Toast.makeText(getActivity(), e.getMessage(), Toast.LENGTH_SHORT).show();
+                e.printStackTrace();
+            }
+        }, error -> Toast.makeText(getActivity(), error.toString(), Toast.LENGTH_SHORT).show());
+        queue.add(request);
         items.add(new Hourly("Bây giờ", 2323, "rain_status"));
         items.add(new Hourly("Bây giờ", 2323, "sunny_status"));
         items.add(new Hourly("Bây giờ", 2323, "rain_status"));
@@ -65,7 +84,6 @@ public class DetailFragment extends Fragment {
         items.add(new Hourly("Bây giờ", 2323, "rain_status"));
         items.add(new Hourly("Bây giờ", 2323, "rain_status"));
         items.add(new Hourly("Bây giờ", 2323, "rain_status"));
-
 
         adapterHourly = new HourlyAdapters(items, requireContext());
         hourlyView.setAdapter(adapterHourly);
@@ -85,43 +103,44 @@ public class DetailFragment extends Fragment {
                 String windDirection = currentObject.getString("wind_dir");
                 windDirectionTxt.setText(windDirection);
 
-                // doan nay de lay tinh trang thoi tiet
-                JSONObject conditionObject = currentObject.getJSONObject("condition");
-                String textCondition = conditionObject.getString("text");
-
                 // Cai nay de anh xa gia tri voi api (hoi hoi na na if else)
                 HashMap<String, String> weatherMapping = new HashMap<>();
 
                 // vi du cai nay kieu nhu la "neu gia tri tu api la "clear" thi minh se hien thi len man hinh la "troi quang"
-                weatherMapping.put("Clear", "Trời quang");
-                weatherMapping.put("Rainy", "Mưa");
-                weatherMapping.put("Cloudy", "Nhiều mây");
-                weatherMapping.put("Partly cloudy", "Mây rải rác");
-                weatherMapping.put("Sunny", "Nắng");
-                weatherMapping.put("Mist", "Sương mù");
+                weatherMapping.put("S", "Nam");
+                weatherMapping.put("N", "Bắc");
+                weatherMapping.put("W", "Tây");
+                weatherMapping.put("E", "Đông");
+                weatherMapping.put("SSE", "Nam - Đông Nam");
+                weatherMapping.put("NNE", "Bắc - Đông Bắc");
 
-                String displayValue = weatherMapping.get(textCondition);
-//                conditionTxt.setText(displayValue);
-//                switch (displayValue) {
-//                    case "Mây rải rác":
-//                        Glide.with(this).load(R.drawable.cloudy_main_frame).into(conditionGif);
-//                        Log.d("Result", "Load gif thành công");
-//                        break;
-//                    case "Trời quang":
-//                        Glide.with(this).load(R.drawable.clear_mainframe).into(conditionGif);
-//                        Log.d("Result", "Load gif thành công");
-//                        break;
-//                    case "Nắng":
-//                        Glide.with(this).load(R.drawable.sunnygif_mainframe).into(conditionGif);
-//                        break;
-//                    case "Mưa":
-//                        Glide.with(this).load(R.drawable.rain_condition_mainframe).into(conditionGif);
-//                        break;
-//                    case "Sương mù":
-//                        Glide.with(this).load(R.drawable.mist_mainframe).into(conditionGif);
-//                        break;
-//                }
-//
+                weatherMapping.put("NE", "Đông Bắc");
+                weatherMapping.put("NW", "Tây Bắc");
+                weatherMapping.put("SW", "Tây Nam");
+
+
+                String displayValue = weatherMapping.get(windDirection);
+                windDirectionTxt.setText(displayValue);
+
+                // Tam nhin
+                Double visual = currentObject.getDouble("vis_km");
+                visualTxt.setText(visual+""+"km");
+
+                // UV
+                Double uv = currentObject.getDouble("uv");
+                uvTxt.setText(uv+"");
+
+                // gust
+                Double gust = currentObject.getDouble("gust_kph");
+                gustTxt.setText(gust+""+"km/h");
+
+                // precip
+                Double precip = currentObject.getDouble("precip_mm");
+                precipTxt.setText(precip+""+"mm");
+
+                // ap luc (don vi mb = milibar)
+                Double pressure = currentObject.getDouble("pressure_mb");
+                pressureTxt.setText(pressure+""+"mb");
 //
 //                // nhiet do cam nhan
 //                int realFeelTemp = currentObject.getInt("feelslike_c");
