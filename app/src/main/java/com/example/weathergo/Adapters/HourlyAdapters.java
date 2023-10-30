@@ -1,6 +1,7 @@
 package com.example.weathergo.Adapters;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.example.weathergo.Domains.Daily;
 import com.example.weathergo.Domains.Hourly;
 import com.example.weathergo.R;
 
@@ -41,12 +43,17 @@ public class HourlyAdapters extends RecyclerView.Adapter<HourlyAdapters.viewHold
         holder.hourTxt.setText(items.get(position).getHour());
         holder.tempTxt.setText(items.get(position).getTemp() + "°");
 
-        int drawableResourceId = holder.itemView.getResources().getIdentifier(items.get(position).getPicPath(), "drawable", holder.itemView.getContext().getPackageName());
+        // int drawableResourceId = holder.itemView.getResources().getIdentifier(items.get(position).getPicPath(), "drawable", holder.itemView.getContext().getPackageName());
 
-        Glide.with(context).load(drawableResourceId).into(holder.pic);
+//        Glide.with(context).load().into(holder.pic);
 
 //        String item = String.valueOf(items.get(position));
 //        holder.tempTxt.setText(item);
+
+        String picPath = items.get(position).getPicPath();
+        Log.d("PicPathDebug", "PicPath: " + picPath); // In đường dẫn vào Logcat
+        Glide.with(holder.itemView.getContext()).load("https:"+picPath).into(holder.pic);
+        Log.d("Test", "Load ảnh thành công");
     }
 
     @Override

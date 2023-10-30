@@ -101,10 +101,19 @@ public class HomeFragment extends Fragment {
                 weatherMapping.put("Mist", "Sương mù");
                 weatherMapping.put("Moderate rain", "Mưa vừa");
                 weatherMapping.put("Light rain", "Mưa nhỏ");
+                weatherMapping.put("Overcast", "Âm u");
+                weatherMapping.put("Patchy rain possible", "Có thể mưa");
 
                 String displayValue = weatherMapping.get(textCondition);
                 conditionTxt.setText(displayValue);
                 switch (displayValue){
+                    case"Có thể mưa":
+                        conditionTxt.setTextSize(20);
+                        Glide.with(this).load(R.drawable.moderate_rain).into(conditionGif);
+                        break;
+                    case "Âm u":
+                        Glide.with(this).load(R.drawable.overcast).into(conditionGif);
+                        break;
                     case "Mưa nhỏ":
                         Glide.with(this).load(R.drawable.moderate_rain).into(conditionGif);
                         break;

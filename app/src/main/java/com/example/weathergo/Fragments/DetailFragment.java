@@ -26,6 +26,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 
 public class DetailFragment extends Fragment {
@@ -62,32 +63,57 @@ public class DetailFragment extends Fragment {
         String apikey = "3e196e42d16c6b34d661461bffccea60";
         String city = "hanoi";
         // String url = "https://api.openweathermap.org/data/2.5/weather?q="+city+"&appid="+apikey+"";
-        String url = "https://api.weatherapi.com/v1/current.json?key=3e863d90628d41b2a6e72023232709&q=Hanoi&aqi=no";
+        String url = "https://api.weatherapi.com/v1/forecast.json?key=3e863d90628d41b2a6e72023232709&q=Hanoi&days=1&aqi=no&alerts=no";
         RequestQueue queue = Volley.newRequestQueue(getActivity().getApplicationContext());
         JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null, response -> {
             try {
-                JSONObject forecastObject = response.getJSONObject("forecast");
-                JSONArray forecastDayArray = forecastObject.getJSONArray("forecastday");
-                JSONObject hourObject = forecastDayArray.getJSONObject(4);
+                Date date = new Date();
+                String dateString = String.valueOf(date);
+                String hourStringWithMinutes = dateString.substring(11,16);
+                String hourString = dateString.substring(11,13);
+                Log.d("Ngày hiện tại: ", dateString);
+                Log.d("Giờ hiện tại: ", hourStringWithMinutes);
+                // Lấy mảng "hour" từ JSON
+                JSONArray hourArray = response.getJSONObject("forecast").getJSONArray("forecastday").getJSONObject(0).getJSONArray("hour");
 
+
+                for (int i=1; i<hourArray.length();i++){
+
+                    // Chọn phần tử cụ thể, ví dụ: phần tử đầu tiên trong danh sách
+                    JSONObject firstHour = hourArray.getJSONObject(i);
+
+                    // Lấy giá trị "temp_c" từ phần tử cụ thể
+                    Integer tempC = firstHour.getInt("temp_c");
+
+                    JSONObject conditionObject = firstHour.getJSONObject("condition");
+                    String icon = conditionObject.getString("icon");
+                    Log.d("Kết quả", icon);
+                    String time = firstHour.getString("time");
+                    String subTimeWithMinutes = time.substring(11,16);
+
+                    String subTime = time.substring(11,13);
+                    int result = hourString.compareTo(subTime);
+                    if (result < 0){
+                        items.add(new Hourly(subTimeWithMinutes, tempC, icon));
+                    }
+                    else if (result == 0){
+                        items.add(new Hourly("Bây giờ", tempC, icon));
+                    }
+
+
+                }
+
+
+                adapterHourly = new HourlyAdapters(items, requireContext());
+                hourlyView.setAdapter(adapterHourly);
+                hourlyView.setLayoutManager(new LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false));
             } catch (JSONException e) {
                 Toast.makeText(getActivity(), e.getMessage(), Toast.LENGTH_SHORT).show();
                 e.printStackTrace();
             }
         }, error -> Toast.makeText(getActivity(), error.toString(), Toast.LENGTH_SHORT).show());
         queue.add(request);
-        items.add(new Hourly("Bây giờ", 2323, "rain_status"));
-        items.add(new Hourly("Bây giờ", 2323, "sunny_status"));
-        items.add(new Hourly("Bây giờ", 2323, "rain_status"));
-        items.add(new Hourly("Bây giờ", 2323, "rain_status"));
-        items.add(new Hourly("Bây giờ", 2323, "rain_status"));
-        items.add(new Hourly("Bây giờ", 2323, "rain_status"));
-        items.add(new Hourly("Bây giờ", 2323, "rain_status"));
-        items.add(new Hourly("Bây giờ", 2323, "rain_status"));
 
-        adapterHourly = new HourlyAdapters(items, requireContext());
-        hourlyView.setAdapter(adapterHourly);
-        hourlyView.setLayoutManager(new LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false));
     }
 
     public void getWeatherData() {
@@ -113,7 +139,6 @@ public class DetailFragment extends Fragment {
                 weatherMapping.put("E", "Đông");
                 weatherMapping.put("SSE", "Nam - Đông Nam");
                 weatherMapping.put("NNE", "Bắc - Đông Bắc");
-
                 weatherMapping.put("NE", "Đông Bắc");
                 weatherMapping.put("NW", "Tây Bắc");
                 weatherMapping.put("SW", "Tây Nam");
@@ -141,22 +166,6 @@ public class DetailFragment extends Fragment {
                 // ap luc (don vi mb = milibar)
                 Double pressure = currentObject.getDouble("pressure_mb");
                 pressureTxt.setText(pressure+""+"mb");
-//
-//                // nhiet do cam nhan
-//                int realFeelTemp = currentObject.getInt("feelslike_c");
-//                realFeelTxt.setText(realFeelTemp + "" + "°C");
-//
-//                // do am
-//                int humidity = currentObject.getInt("humidity");
-//                humidityTxt.setText(humidity + "" + "%");
-//
-//                // toc do gio
-//                double windSpeed = currentObject.getDouble("wind_kph");
-//                windSpeedTxt.setText(windSpeed + "" + "km/h");
-//
-//                // luong may
-//                int cloud = currentObject.getInt("cloud");
-//                cloudTxt.setText(cloud + "" + "%");
 
 
             } catch (JSONException e) {

@@ -7,6 +7,7 @@ import androidx.viewpager2.adapter.FragmentStateAdapter;
 
 import com.example.weathergo.Fragments.DetailFragment;
 import com.example.weathergo.Fragments.HomeFragment;
+import com.example.weathergo.Fragments.NextDaysFragment;
 
 public class ViewPagerAdapter extends FragmentStateAdapter {
     public ViewPagerAdapter(@NonNull FragmentActivity fragmentActivity) {
@@ -21,6 +22,8 @@ public class ViewPagerAdapter extends FragmentStateAdapter {
                 return new HomeFragment();
             case 1:
                 return new DetailFragment();
+            case 2:
+                return new NextDaysFragment();
             default: return new HomeFragment();
         }
     }
