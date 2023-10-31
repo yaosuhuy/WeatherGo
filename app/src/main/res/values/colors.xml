@@ -5,4 +5,5 @@
     <color name="unselected_tab_color">#cccccc</color>
     <color name="selected_tab_color">#000000</color>
     <color name="primary">#33F1CCCD</color>
+    <color name="custom_action_bar_color">#33F1CCCD</color>
 </resources>

@@ -12,7 +12,7 @@
         android:layout_height="650px"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="160px"
+
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -22,7 +22,7 @@
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/conditionView"
             android:layout_width="match_parent"
-            android:layout_height="620px"
+            android:layout_height="230dp"
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
             android:layout_gravity="center_horizontal"
@@ -71,7 +71,7 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:layout_marginStart="34dp"
-        android:layout_marginTop="851px"
+        android:layout_marginTop="260dp"
         android:gravity="top"
         android:text="Chi tiết thời tiết"
         android:textColor="#818181"
@@ -83,14 +83,14 @@
         android:layout_width="460px"
         android:layout_height="320px"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="364dp"
+        android:layout_marginTop="290dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <View
             android:id="@+id/realFeelFrame"
-            android:layout_width="430px"
-            android:layout_height="300px"
+            android:layout_width="160dp"
+            android:layout_height="110dp"
             android:layout_marginStart="10dp"
             android:background="@drawable/rectangle"
             android:elevation="4dp" />
@@ -133,16 +133,17 @@
     <FrameLayout
         android:layout_width="460px"
         android:layout_height="320px"
-        android:layout_marginTop="364dp"
+        android:layout_marginTop="290dp"
         android:layout_marginEnd="24dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <View
             android:id="@+id/humidityFrame"
-            android:layout_width="430px"
-            android:layout_height="300px"
-            android:layout_marginStart="2dp"
+            android:layout_width="160dp"
+            android:layout_height="110dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="10dp"
             android:background="@drawable/rectangle"
             android:elevation="4dp" />
 
@@ -186,14 +187,14 @@
         android:layout_width="460px"
         android:layout_height="320px"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="496dp"
+        android:layout_marginTop="430dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <View
             android:id="@+id/windSpeedFrame"
-            android:layout_width="430px"
-            android:layout_height="300px"
+            android:layout_width="160dp"
+            android:layout_height="110dp"
             android:layout_marginStart="10dp"
             android:background="@drawable/rectangle"
             android:elevation="4dp" />
@@ -236,7 +237,7 @@
     <FrameLayout
         android:layout_width="460px"
         android:layout_height="320px"
-        android:layout_marginTop="496dp"
+        android:layout_marginTop="430dp"
         android:layout_marginEnd="24dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -244,9 +245,9 @@
 
         <View
             android:id="@+id/cloudFrame"
-            android:layout_width="430px"
-            android:layout_height="300px"
-            android:layout_marginStart="2dp"
+            android:layout_width="160dp"
+            android:layout_height="110dp"
+            android:layout_marginStart="5dp"
             android:background="@drawable/rectangle"
             android:elevation="4dp" />
 

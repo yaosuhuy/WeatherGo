@@ -1,9 +1,17 @@
 package com.example.weathergo.Activities;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.viewpager2.widget.ViewPager2;
 
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 
 import com.example.weathergo.Adapters.ViewPagerAdapter;
 import com.example.weathergo.R;
@@ -14,8 +22,21 @@ public class MainActivity extends AppCompatActivity {
     TabLayout tabLayout;
     ViewPager2 viewPager2;
     ViewPagerAdapter viewPagerAdapter;
+
+
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        ActionBar toolbar = getSupportActionBar();
+        if (toolbar != null) {
+            toolbar.setBackgroundDrawable(new ColorDrawable(Color.rgb(252,242,244)));
+            toolbar.setElevation(0);
+            toolbar.setTitle("");
+        }
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -48,5 +69,18 @@ public class MainActivity extends AppCompatActivity {
                 tabLayout.getTabAt(position).select();
             }
         });
+
+
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.options_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        return super.onOptionsItemSelected(item);
     }
 }

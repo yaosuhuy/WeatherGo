@@ -4,7 +4,27 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+
     tools:context=".Activities.MainActivity">
+<!--    <LinearLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="50dp"-->
+<!--        android:background="@color/primary"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent">-->
+
+<!--    </LinearLayout>-->
+<!--    <androidx.appcompat.widget.Toolbar-->
+<!--        android:id="@+id/toolbar"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="50dp"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        android:background="#33F1CCCD"-->
+<!--        android:elevation="4dp"-->
+<!--        android:theme="@style/Theme.Material3.DayNight.NoActionBar"-->
+<!--        />-->
+
 
 
 
@@ -37,10 +57,10 @@
     </com.google.android.material.tabs.TabLayout>
 
     <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/viewPager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/viewPager"
-        app:layout_constraintBottom_toTopOf="@id/tabLayout"
         android:layout_marginBottom="50dp"
-        />
+        app:layout_constraintBottom_toTopOf="@id/tabLayout">
+    </androidx.viewpager2.widget.ViewPager2>
 </androidx.constraintlayout.widget.ConstraintLayout>
