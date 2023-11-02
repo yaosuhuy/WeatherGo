@@ -1,5 +1,7 @@
 package com.example.weathergo.Fragments;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.media.Image;
 import android.os.Bundle;
 import android.util.Log;
@@ -25,6 +27,8 @@ import org.json.JSONObject;
 import java.util.HashMap;
 
 public class HomeFragment extends Fragment {
+
+    private SharedPreferences sharedPreferences;
     TextView realFeelTxt, cloudTxt, windSpeedTxt, humidityTxt, mainTempTxt, conditionTxt;
     ImageView conditionGif;
     @Override
@@ -41,6 +45,8 @@ public class HomeFragment extends Fragment {
 
         conditionGif = (ImageView) view.findViewById(R.id.conditionView);
         // Inflate the layout for this fragment
+
+        sharedPreferences = requireActivity().getSharedPreferences("MyPreferences", Context.MODE_PRIVATE);
         getWeatherData();
         // return inflater.inflate(R.layout.fragment_home, container, false);
         return view;
@@ -83,7 +89,19 @@ public class HomeFragment extends Fragment {
                 JSONObject currentObject = response.getJSONObject("current");
                 double temperature = currentObject.getDouble("temp_c");
                 String tempCelText = String.valueOf((int) temperature);
-                mainTempTxt.setText(tempCelText+"°");
+                double temperatureF = temperature*9/5+32;
+                String tempFahText = String.valueOf((int) temperatureF);
+
+                String selectedUnit = sharedPreferences.getString("unit","Celsius");
+
+                if (selectedUnit.equals("Celsius")) {
+                    mainTempTxt.setText(tempCelText + "°");
+                }
+                else if (selectedUnit.equals("Fahrenheit")){
+                    Log.d("Đơn vị đã chọn: ", selectedUnit);
+                    mainTempTxt.setText(tempFahText + "°");
+                }
+
 
                 // doan nay de lay tinh trang thoi tiet
                 JSONObject conditionObject = currentObject.getJSONObject("condition");
@@ -142,7 +160,13 @@ public class HomeFragment extends Fragment {
 
                 // nhiet do cam nhan
                 int realFeelTemp = currentObject.getInt("feelslike_c");
-                realFeelTxt.setText(realFeelTemp+""+"°C");
+                int realFeelTemperatureF = realFeelTemp*9/5+32;
+                if (selectedUnit.equals("Celsius")){
+                    realFeelTxt.setText(realFeelTemp+""+"°C");
+                }
+                else if (selectedUnit.equals("Fahrenheit")){
+                    realFeelTxt.setText(realFeelTemperatureF+""+"°F");
+                }
 
                 // do am
                 int humidity = currentObject.getInt("humidity");

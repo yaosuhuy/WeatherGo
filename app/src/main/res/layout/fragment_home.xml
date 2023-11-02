@@ -114,7 +114,7 @@
             android:layout_marginStart="65px"
             android:layout_marginTop="130px"
             android:elevation="4dp"
-            android:text="Nhiệt độ cảm nhận"
+            android:text="Cảm nhận"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 

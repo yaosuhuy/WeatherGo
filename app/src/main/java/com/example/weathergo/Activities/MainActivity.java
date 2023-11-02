@@ -1,17 +1,16 @@
 package com.example.weathergo.Activities;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-import androidx.viewpager2.widget.ViewPager2;
-
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.viewpager2.widget.ViewPager2;
 
 import com.example.weathergo.Adapters.ViewPagerAdapter;
 import com.example.weathergo.R;
@@ -25,14 +24,12 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         ActionBar toolbar = getSupportActionBar();
         if (toolbar != null) {
-            toolbar.setBackgroundDrawable(new ColorDrawable(Color.rgb(252,242,244)));
+            toolbar.setBackgroundDrawable(new ColorDrawable(Color.rgb(252, 242, 244)));
             toolbar.setElevation(0);
             toolbar.setTitle("");
         }
@@ -81,6 +78,11 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        int itemId = item.getItemId();
+        if (itemId == R.id.menuItem1){
+            Intent intent = new Intent(this, SettingsActivity.class);
+            startActivity(intent);
+        }
         return super.onOptionsItemSelected(item);
     }
 }
