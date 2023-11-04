@@ -60,31 +60,6 @@ public class HomeFragment extends Fragment {
         RequestQueue queue = Volley.newRequestQueue(getActivity().getApplicationContext());
         JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null, response -> {
             try {
-
-//                JSONObject mainObject = response.getJSONObject("main");
-//                JSONObject windObject = response.getJSONObject("wind");
-//                JSONObject cloudObject = response.getJSONObject("clouds");
-//                double temperature = mainObject.getDouble("temp");
-//                double tempCel = (int) temperature - 273.15;
-//                String tempCelText = String.valueOf((int) tempCel);
-//                mainTempTxt.setText(tempCelText);
-//
-//                double realFeelTemp = mainObject.getDouble("feels_like");
-//                double realFeelTempCel = (int) realFeelTemp - 273.15;
-//                String realFeelTempCelText = String.valueOf((int) realFeelTempCel);
-//                realFeelTxt.setText(realFeelTempCelText+"°C");
-//
-//                double humidity = mainObject.getDouble("humidity");
-//                String humidityText = String.valueOf((int) humidity);
-//                humidityTxt.setText(humidityText+"%");
-//
-//                double windSpeed = windObject.getDouble("speed");
-//                windSpeedTxt.setText(windSpeed+""+"m/s");
-//
-//                double cloud = cloudObject.getDouble("all");
-//                String cloudText = String.valueOf((int) cloud);
-//                cloudTxt.setText(cloudText+"%");
-
                 // nhiet do o khung chinh
                 JSONObject currentObject = response.getJSONObject("current");
                 double temperature = currentObject.getDouble("temp_c");
