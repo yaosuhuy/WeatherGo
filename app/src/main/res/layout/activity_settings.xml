@@ -7,6 +7,30 @@
     tools:context=".Activities.SettingsActivity">
 
     <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="70dp"
+        android:layout_weight="1"
+        android:text="Địa điểm (theo tên thành phố)"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/locationEdt"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_weight="1"
+        android:ems="13"
+        android:inputType="text"
+        android:text="Địa điểm"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="90dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -32,7 +56,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-
         <RadioButton
             android:id="@+id/fahrenheitRadioButton"
             android:layout_width="wrap_content"
@@ -42,15 +65,17 @@
             android:text="Fahrenheit"
             app:layout_constraintStart_toEndOf="@+id/celsiusRadioButton"
             app:layout_constraintTop_toTopOf="parent" />
+
+
     </RadioGroup>
 
     <Button
         android:id="@+id/saveButton"
         android:layout_width="200dp"
         android:layout_height="50dp"
+        android:layout_marginStart="40dp"
         android:layout_marginTop="240dp"
         android:layout_marginBottom="100dp"
-    android:layout_marginStart="40dp"
         android:text="LƯU THAY ĐỔI"
 
         app:layout_constraintStart_toStartOf="parent"

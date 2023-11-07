@@ -29,7 +29,7 @@ import java.util.HashMap;
 public class HomeFragment extends Fragment {
 
     private SharedPreferences sharedPreferences;
-    TextView realFeelTxt, cloudTxt, windSpeedTxt, humidityTxt, mainTempTxt, conditionTxt;
+    TextView cityTxt, realFeelTxt, cloudTxt, windSpeedTxt, humidityTxt, mainTempTxt, conditionTxt;
     ImageView conditionGif;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -42,7 +42,7 @@ public class HomeFragment extends Fragment {
         windSpeedTxt = view.findViewById(R.id.windSpeedTxt);
         cloudTxt = view.findViewById(R.id.cloudTxt);
         conditionTxt = view.findViewById(R.id.conditionTxt);
-
+        cityTxt = view.findViewById(R.id.cityTxt);
         conditionGif = view.findViewById(R.id.conditionView);
         // Inflate the layout for this fragment
 
@@ -54,12 +54,15 @@ public class HomeFragment extends Fragment {
 
     public void getWeatherData() {
 //        String apikey = "3e196e42d16c6b34d661461bffccea60";
-//        String city = "hanoi";
+        String city = sharedPreferences.getString("location","");
+        Log.d("Thành phố hiện tại: ", city);
+
         // String url = "https://api.openweathermap.org/data/2.5/weather?q="+city+"&appid="+apikey+"";
-        String url = "https://api.weatherapi.com/v1/current.json?key=3e863d90628d41b2a6e72023232709&q=Hanoi&aqi=no";
+        String url = "https://api.weatherapi.com/v1/current.json?key=3e863d90628d41b2a6e72023232709&q="+city+"&aqi=no";
         RequestQueue queue = Volley.newRequestQueue(getActivity().getApplicationContext());
         JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null, response -> {
             try {
+                cityTxt.setText(city);
                 // nhiet do o khung chinh
                 JSONObject currentObject = response.getJSONObject("current");
                 double temperature = currentObject.getDouble("temp_c");

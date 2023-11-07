@@ -42,7 +42,8 @@
             android:layout_marginStart="30dp"
             android:layout_marginTop="20dp"
             android:elevation="4dp"
-            android:text="Hà Nội"
+            android:id="@+id/cityTxt"
+            android:text=""
             android:textColor="@color/white"
             android:textSize="55px" />
 

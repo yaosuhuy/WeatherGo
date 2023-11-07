@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
@@ -19,6 +20,7 @@ public class SettingsActivity extends AppCompatActivity {
 
     private SharedPreferences sharedPreferences;
     private String selectedUnit = "Celsius";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,9 +29,11 @@ public class SettingsActivity extends AppCompatActivity {
         sharedPreferences = getSharedPreferences("MyPreferences", MODE_PRIVATE);
 
         RadioGroup radioGroup = findViewById(R.id.radioGroup);
+        EditText locationEdt = findViewById(R.id.locationEdt);
 
         selectedUnit = sharedPreferences.getString("unit", "Celsius");
-
+        String selectedLocation = sharedPreferences.getString("location", "");
+        locationEdt.setText(selectedLocation);
         // Đặt đơn vị đúng RadioButton tương ứng
         if (selectedUnit.equals("Celsius")) {
             RadioButton celsiusRadioButton = findViewById(R.id.celsiusRadioButton);
@@ -38,6 +42,9 @@ public class SettingsActivity extends AppCompatActivity {
             RadioButton fahrenheitRadioButton = findViewById(R.id.fahrenheitRadioButton);
             fahrenheitRadioButton.setChecked(true);
         }
+
+
+
 
         radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
@@ -59,11 +66,13 @@ public class SettingsActivity extends AppCompatActivity {
                 // Lưu đơn vị được chọn vào SharedPreferences
                 SharedPreferences.Editor editor = sharedPreferences.edit();
                 editor.putString("unit", selectedUnit);
+                editor.putString("location", locationEdt.getText().toString());
                 editor.apply();
                 //
                 Intent intent = new Intent(SettingsActivity.this, MainActivity.class);
                 startActivity(intent);
                 Log.d("Đã chọn đơn vị:", selectedUnit);
+                Log.d("Đã chuyển sang địa điểm: ", selectedLocation);
             }
         });
 
