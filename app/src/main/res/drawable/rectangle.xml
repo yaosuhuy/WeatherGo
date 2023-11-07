@@ -5,7 +5,7 @@
         <shape>
             <solid android:color="#F6EEED"></solid>
 <!--            <solid android:color="#00000000" /> &lt;!&ndash; #00000000 là màu đen trong suốt &ndash;&gt;-->
-            <corners android:radius="75px"></corners>
+            <corners android:radius="20dp"></corners>
         </shape>
     </item>
 </selector>

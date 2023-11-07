@@ -36,14 +36,14 @@ public class HomeFragment extends Fragment {
                              Bundle savedInstanceState) {
         // trong fragment ko findview by id duoc, phai lam the nay
         View view = inflater.inflate(R.layout.fragment_home, container, false);
-        realFeelTxt = (TextView) view.findViewById(R.id.realFeelTxt);
-        mainTempTxt = (TextView) view.findViewById(R.id.mainTempTxt);
-        humidityTxt = (TextView) view.findViewById(R.id.humidityTxt);
-        windSpeedTxt = (TextView) view.findViewById(R.id.windSpeedTxt);
-        cloudTxt = (TextView) view.findViewById(R.id.cloudTxt);
-        conditionTxt = (TextView) view.findViewById(R.id.conditionTxt);
+        realFeelTxt = view.findViewById(R.id.realFeelTxt);
+        mainTempTxt = view.findViewById(R.id.mainTempTxt);
+        humidityTxt = view.findViewById(R.id.humidityTxt);
+        windSpeedTxt = view.findViewById(R.id.windSpeedTxt);
+        cloudTxt = view.findViewById(R.id.cloudTxt);
+        conditionTxt = view.findViewById(R.id.conditionTxt);
 
-        conditionGif = (ImageView) view.findViewById(R.id.conditionView);
+        conditionGif = view.findViewById(R.id.conditionView);
         // Inflate the layout for this fragment
 
         sharedPreferences = requireActivity().getSharedPreferences("MyPreferences", Context.MODE_PRIVATE);
@@ -53,8 +53,8 @@ public class HomeFragment extends Fragment {
     }
 
     public void getWeatherData() {
-        String apikey = "3e196e42d16c6b34d661461bffccea60";
-        String city = "hanoi";
+//        String apikey = "3e196e42d16c6b34d661461bffccea60";
+//        String city = "hanoi";
         // String url = "https://api.openweathermap.org/data/2.5/weather?q="+city+"&appid="+apikey+"";
         String url = "https://api.weatherapi.com/v1/current.json?key=3e863d90628d41b2a6e72023232709&q=Hanoi&aqi=no";
         RequestQueue queue = Volley.newRequestQueue(getActivity().getApplicationContext());
@@ -96,10 +96,19 @@ public class HomeFragment extends Fragment {
                 weatherMapping.put("Light rain", "Mưa nhỏ");
                 weatherMapping.put("Overcast", "Âm u");
                 weatherMapping.put("Patchy rain possible", "Có thể mưa");
-
+                weatherMapping.put("Patchy light rain with thunder", "Mưa có sấm sét");
+                weatherMapping.put("Moderate or heavy rain with thunder", "Mưa nặng hạt có sấm sét");
                 String displayValue = weatherMapping.get(textCondition);
                 conditionTxt.setText(displayValue);
                 switch (displayValue){
+                    case "Mưa nặng hạt có sấm sét":
+                        conditionTxt.setTextSize(14);
+                        Glide.with(this).load(R.drawable.rain_thunder).into(conditionGif);
+                        break;
+                    case "Mưa có sấm sét":
+                        conditionTxt.setTextSize(15);
+                        Glide.with(this).load(R.drawable.rain_thunder).into(conditionGif);
+                        break;
                     case"Có thể mưa":
                         conditionTxt.setTextSize(20);
                         Glide.with(this).load(R.drawable.moderate_rain).into(conditionGif);

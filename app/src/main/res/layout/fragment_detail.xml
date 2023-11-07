@@ -13,14 +13,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="78px"
-        android:layout_marginEnd="78px"
         android:layout_marginTop="0dp"
+        android:layout_marginEnd="78px"
         android:background="#33F1CCCD"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <!--    huong gio frame-->
-    <FrameLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="460px"
         android:layout_height="320px"
         android:layout_marginStart="24dp"
@@ -30,11 +30,17 @@
 
         <View
             android:id="@+id/windDirectionFrame"
-            android:layout_width="160dp"
-            android:layout_height="110dp"
-            android:layout_marginStart="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="11dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginBottom="13dp"
             android:background="@drawable/rectangle"
-            android:elevation="4dp" />
+            android:elevation="4dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
             android:id="@+id/windDirectionIcon"
@@ -68,10 +74,10 @@
             android:elevation="4dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
-    </FrameLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <!--  humidity frame-->
-    <FrameLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="460px"
         android:layout_height="320px"
         android:layout_marginTop="180dp"
@@ -81,11 +87,17 @@
 
         <View
             android:id="@+id/visFrame"
-            android:layout_width="160dp"
-            android:layout_height="110dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_marginStart="5dp"
+            android:layout_marginEnd="11dp"
+            android:layout_marginBottom="13dp"
             android:background="@drawable/rectangle"
-            android:elevation="4dp" />
+            android:elevation="4dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
 
         <ImageView
@@ -115,15 +127,15 @@
             android:id="@+id/visTxt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="40px"
+            android:layout_marginStart="15dp"
             android:layout_marginTop="200px"
             android:elevation="4dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
-    </FrameLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <!--    wind speed frame -->
-    <FrameLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="460px"
         android:layout_height="320px"
         android:layout_marginStart="24dp"
@@ -133,11 +145,17 @@
 
         <View
             android:id="@+id/uvFrame"
-            android:layout_width="160dp"
-            android:layout_height="110dp"
-            android:layout_marginStart="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="11dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginBottom="13dp"
             android:background="@drawable/rectangle"
-            android:elevation="4dp" />
+            android:elevation="4dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
             android:id="@+id/uvIcon"
@@ -171,9 +189,9 @@
             android:elevation="4dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
-    </FrameLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
     <!--    wind speed frame -->
-    <FrameLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="460px"
         android:layout_height="320px"
         android:layout_marginStart="24dp"
@@ -183,11 +201,17 @@
 
         <View
             android:id="@+id/precipFrame"
-            android:layout_width="160dp"
-            android:layout_height="110dp"
-            android:layout_marginStart="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="11dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginBottom="13dp"
             android:background="@drawable/rectangle"
-            android:elevation="4dp" />
+            android:elevation="4dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
             android:id="@+id/precipIcon"
@@ -221,10 +245,10 @@
             android:elevation="4dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
-    </FrameLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <!--    cloud frame-->
-    <FrameLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="460px"
         android:layout_height="320px"
         android:layout_marginTop="320dp"
@@ -235,11 +259,17 @@
 
         <View
             android:id="@+id/gustFrame"
-            android:layout_width="160dp"
-            android:layout_height="110dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_marginStart="5dp"
+            android:layout_marginEnd="11dp"
+            android:layout_marginBottom="13dp"
             android:background="@drawable/rectangle"
-            android:elevation="4dp" />
+            android:elevation="4dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
             android:id="@+id/gustIcon"
@@ -268,15 +298,15 @@
             android:id="@+id/gustTxt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="40px"
+            android:layout_marginStart="15dp"
             android:layout_marginTop="200px"
             android:elevation="4dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
-    </FrameLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <!--    cloud frame-->
-    <FrameLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="460px"
         android:layout_height="320px"
         android:layout_marginTop="460dp"
@@ -287,11 +317,17 @@
 
         <View
             android:id="@+id/pressureFrame"
-            android:layout_width="160dp"
-            android:layout_height="110dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_marginStart="5dp"
+            android:layout_marginEnd="11dp"
+            android:layout_marginBottom="13dp"
             android:background="@drawable/rectangle"
-            android:elevation="4dp" />
+            android:elevation="4dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
 
         <ImageView
             android:id="@+id/pressureIcon"
@@ -320,10 +356,10 @@
             android:id="@+id/pressureTxt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="40px"
+            android:layout_marginStart="15dp"
             android:layout_marginTop="200px"
             android:elevation="4dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
-    </FrameLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
