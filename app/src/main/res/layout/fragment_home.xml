@@ -79,7 +79,7 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:layout_marginStart="34dp"
-        android:layout_marginTop="260dp"
+        android:layout_marginTop="250dp"
         android:gravity="top"
         android:text="Chi tiết thời tiết"
         android:textColor="#818181"
