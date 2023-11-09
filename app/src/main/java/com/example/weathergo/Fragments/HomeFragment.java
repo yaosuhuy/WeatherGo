@@ -94,13 +94,13 @@ public class HomeFragment extends Fragment {
                 weatherMapping.put("Cloudy", "Nhiều mây");
                 weatherMapping.put("Partly cloudy", "Mây rải rác");
                 weatherMapping.put("Sunny", "Nắng");
-                weatherMapping.put("Mist", "Sương mù");
                 weatherMapping.put("Moderate rain", "Mưa vừa");
                 weatherMapping.put("Light rain", "Mưa nhỏ");
                 weatherMapping.put("Overcast", "Âm u");
                 weatherMapping.put("Patchy rain possible", "Có thể mưa");
                 weatherMapping.put("Patchy light rain with thunder", "Mưa có sấm sét");
                 weatherMapping.put("Moderate or heavy rain with thunder", "Mưa nặng hạt có sấm sét");
+                weatherMapping.put("Mist", "Sương mù");
                 String displayValue = weatherMapping.get(textCondition);
                 conditionTxt.setText(displayValue);
                 switch (displayValue){

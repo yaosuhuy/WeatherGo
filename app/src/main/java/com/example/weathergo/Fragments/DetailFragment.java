@@ -142,7 +142,7 @@ public class DetailFragment extends Fragment {
                 weatherMapping.put("NE", "Đông Bắc");
                 weatherMapping.put("NW", "Tây Bắc");
                 weatherMapping.put("SW", "Tây Nam");
-
+                weatherMapping.put("SE", "Đông Nam");
 
                 String displayValue = weatherMapping.get(windDirection);
                 windDirectionTxt.setText(displayValue);
