@@ -7,6 +7,7 @@ import androidx.viewpager2.adapter.FragmentStateAdapter;
 
 import com.example.weathergo.Fragments.DetailFragment;
 import com.example.weathergo.Fragments.HomeFragment;
+import com.example.weathergo.Fragments.NewsFragment;
 import com.example.weathergo.Fragments.NextDaysFragment;
 
 public class ViewPagerAdapter extends FragmentStateAdapter {
@@ -24,6 +25,8 @@ public class ViewPagerAdapter extends FragmentStateAdapter {
                 return new DetailFragment();
             case 2:
                 return new NextDaysFragment();
+            case 3:
+                return new NewsFragment();
             default: return new HomeFragment();
         }
     }
@@ -31,6 +34,6 @@ public class ViewPagerAdapter extends FragmentStateAdapter {
     // tablayout có bao nhiêu cái thì return chừng đó
     @Override
     public int getItemCount() {
-        return 3;
+        return 4;
     }
 }

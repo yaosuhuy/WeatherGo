@@ -58,7 +58,7 @@ public class HomeFragment extends Fragment {
         Log.d("Thành phố hiện tại: ", city);
 
         // String url = "https://api.openweathermap.org/data/2.5/weather?q="+city+"&appid="+apikey+"";
-        String url = "https://api.weatherapi.com/v1/current.json?key=3e863d90628d41b2a6e72023232709&q="+city+"&aqi=no";
+        String url = "http://api.weatherapi.com/v1/current.json?key=09842721b7d347b085c154111242511&q="+city+"&aqi=no";
         RequestQueue queue = Volley.newRequestQueue(getActivity().getApplicationContext());
         JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null, response -> {
             try {
