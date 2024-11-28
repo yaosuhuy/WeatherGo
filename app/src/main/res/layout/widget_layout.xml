@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/openApplication"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    android:padding="20dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp">
+
+        <ImageView
+            android:id="@+id/conditionViewWidget"
+            android:layout_width="match_parent"
+            android:layout_height="230dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:elevation="4dp"
+            android:scaleType="fitXY"
+            app:shapeAppearanceOverlay="@style/roundImageView" />
+
+        <TextView
+            android:id="@+id/cityTxtWidget"
+            android:layout_width="470px"
+            android:layout_height="140px"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="20dp"
+            android:layout_alignTop="@id/conditionViewWidget"
+            android:layout_alignStart="@id/conditionViewWidget"
+            android:elevation="4dp"
+            android:text="test abc"
+            android:textColor="@color/white"
+            android:textSize="55px"
+
+            />
+
+        <TextView
+            android:id="@+id/mainTempTxtWidget"
+            android:layout_width="500px"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_alignBottom="@id/conditionViewWidget"
+            android:layout_alignStart="@id/conditionViewWidget"
+            android:elevation="4dp"
+            android:textColor="@color/white"
+            android:textSize="160px" />
+
+        <TextView
+            android:id="@+id/conditionTxtWidget"
+            android:layout_width="350px"
+            android:layout_height="150px"
+            android:layout_marginStart="180dp"
+            android:layout_alignBottom="@id/conditionViewWidget"
+            android:layout_alignStart="@id/conditionViewWidget"
+            android:elevation="4dp"
+            android:textColor="@color/white"
+            android:textSize="64px" />
+    </RelativeLayout>
+</RelativeLayout>
